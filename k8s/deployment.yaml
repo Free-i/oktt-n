@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eorre
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eorre
+  template:
+    metadata:
+      labels:
+        app: eorre
+    spec:
+      containers:
+      - image: okteto.dev/eorre:latest
+        name: eorre
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/comila-html.zip "
+        - name: Vless_UUID
+          value: "ed4b433f-9c38-4fe7-b07b-18329241b0ac"
+        - name: Vless_Path
+          value: "/ed4b433f-9c38-4fe7-b07b-18329241b0ac-vless"
+        - name: Vmess_UUID
+          value: "ed4b433f-9c38-4fe7-b07b-18329241b0ac"
+        - name: Vmess_Path
+          value: "/ed4b433f-9c38-4fe7-b07b-18329241b0ac-vmess"
+        - name: Share_Path
+          value: "/v5wernk"
